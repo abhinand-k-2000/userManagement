@@ -1,0 +1,130 @@
+<%- include('../layouts/header') %>
+
+
+
+<header>
+  <h1>Dashboard</h1>
+  <div class="right-align">
+    <a href="/admin/home" class="right-align">Home</a>
+  </div>
+</header>
+
+
+
+<div class="container">
+
+  <div class="box-nav d-flex mt-3  justify-content-between">
+    <div class="div">
+      <a href="/admin/new-user" class="border-shadow p-2">
+      <span class="text-gradient">New User <i class="fa-solid fa-user"></i></span></a>
+    </div>
+    <!--Search Bar-->
+    <div class="div">
+      <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchUsers()">Search</button>
+    </div>
+    <!--/ Search Bar-->
+  </div>
+
+    <table class="table mt-4">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(users.length > 0){ for(let i = 0; i < users.length; i++){ %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td><%= users[i].mobile %></td>
+            <td>
+              <a href="/admin/edit-user?id=<%= users[i]._id %>" class="btn border-shadow update ">
+                <span class=""><i class="fa-solid fa-pencil"></i></i></span>
+              </a>
+              <a href="/admin/delete-user?id=<%= users[i]._id %>" class="btn border-shadow update delete-user ">
+                <span class=""><i class="fas fa-trash-alt"></i></span>
+              </a>
+            </td>
+          </tr>
+          <% } } %>
+        </tbody>
+      </table> 
+</div>
+
+<!-- Style -->
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+    color: #ddd;
+    margin-right: 1em;
+  }
+  .right-align {
+    text-align: right
+  }
+
+  .btn.update {
+    background-color: rgb(23, 22, 22);
+    color: #fff;
+  }
+
+  .text-gradient{
+    background: transparent;
+    color: black;
+}
+  .border-shadow{
+    border: 1px solid color(srgb red green blue);
+    box-shadow: 1px 3px 15px #e9ecef;
+    text-decoration: none;
+}
+
+
+/* table style */
+table{
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.table td, .table th{
+    padding: .75em;
+    vertical-align: top;
+    text-align: center; 
+    border-top: 1px solid;
+}
+
+.table td>a.btn{
+    padding: .3em 1em;
+    font-size: 1.1em;
+    margin: 0.2em;
+}
+.table .thead-dark th{
+    color: #fff;
+    background-color: black;
+    
+}  
+</style>
+
+
+
+
+<%- include('../layouts/footer') %>

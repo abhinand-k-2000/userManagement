@@ -1,0 +1,87 @@
+<%- include('../layouts/header') %>
+
+<!-- <h1>Welcome, <%= admin.name %> </h1> -->
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  a{
+    text-decoration: none;
+    color: #ddd;
+    margin-right: 1em;
+  }
+  .right-align {
+    text-align: right;
+  }
+</style>
+
+<header>
+  <h1>Welcome <%= admin.name %></h1>
+  <div class="right-align">
+    <a href="/admin/dashboard">Dashboard</a>
+  <a href="/admin/logout">Logout</a>
+  </div>
+</header>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample Data (Replace with your actual data) -->
+      <tr>
+        <td><%= admin.name %></td>
+        <td><%= admin.email %></td>
+        <td><%= admin.mobile %></td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</main>
+
+
+<%- include('../layouts/footer') %>

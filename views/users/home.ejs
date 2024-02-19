@@ -1,0 +1,93 @@
+<%- include('../layouts/header') %>
+
+
+
+
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  a{
+    text-decoration: none;
+    color: #ddd;
+    margin-right: 1em;
+  }
+  .right-align {
+    text-align: right;
+  }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #4caf50;
+      columns: #fff;
+      color: #fff;
+    }
+
+  </style>
+
+<header>
+  <h1> Welcome <%= user.name %></h1>
+  <div class="right-align">
+    <a href="/edit?id=<%= user._id %>">Edit</a>
+    <a href="/logout">Logout</a>
+  </div>
+</header>
+
+  <main>
+    <h2>User Details</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.mobile %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </main>
+
+
+   
+ 
+
+
+<%- include('../layouts/footer') %>

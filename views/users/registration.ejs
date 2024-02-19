@@ -1,0 +1,136 @@
+<%- include('../layouts/header') %>
+
+<script>
+    function validateForm() {
+        var nameInput = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value;
+        var emailRegex = /^[^\s@]+@gmail\.com$/i;
+
+        var mobile = document.getElementById('mobile').value;
+        var mobileRegex = /^\d{10}$/;
+
+        var password = document.getElementById('password').value;
+        var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
+        if (nameInput === "") {
+            alert("Please enter a valid name");
+            return false;
+        }
+        if (!emailRegex.test(email)) {
+            alert('Invalid email. Please enter a valid Gmail address.');
+            return false;
+        }
+
+        if (!mobileRegex.test(mobile)) {
+            alert('Invalid mobile number. Please enter a 10-digit number.');
+            return false;
+        }
+
+        if (!passwordRegex.test(password)) {
+            alert('Invalid password. It should be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+            return false;
+        }
+
+        return true;
+    }
+    </script>
+
+
+<header>
+    <div class="right-align">
+        <a href="/">Back</a>
+    </div>
+  </header>
+
+
+<h1 class="text-center fw-bolder mt-3">User Registration</h1>
+
+<form action="/register" method="post" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+   
+    <label for="password">Password :</label>
+    <input type="password" id="password" name="password" placeholder="Enter password" required>
+ 
+    <input type="submit" value="Register" class="login">
+
+    <%
+        if(typeof message  !== 'undefined'){
+            %>
+            <p class="text-center mt-3" style="color: green;"><%= message %></p>
+            <%
+        }
+    %>
+    
+</form>
+
+    
+
+
+  
+
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+    header {
+    background-color: #333;
+    color: #fff;
+    padding: 2.4em;
+    text-align: center;
+    
+  }
+  a{
+    text-decoration: none;
+    color: #ddd;
+    margin-right: 1em;
+  }
+  .right-align {
+    text-align: right;
+    position: relative;
+    top: 2em;
+  }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+    .login{
+        background-color: #4CAF50;
+        color: white;
+        font-size: 1.1em;
+        cursor: pointer;
+        border: 0;
+        margin-top: .3em;
+        padding: .5em
+    }
+    .login:hover {
+        background-color: #45a049;
+    }
+</style>
+
+ <!-- validation using javascript -->
+
+
+
+
+<%- include('../layouts/footer') %>

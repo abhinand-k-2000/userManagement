@@ -1,0 +1,60 @@
+<%- include('../layouts/header') %>
+
+
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #e9ecef; /* Light gray background */
+      overflow-y: hidden;
+  }
+
+  header {
+      background-color: #006d77; /* Blue header background */
+      color: white;
+      text-align: center;
+      padding: 1em;
+  } 
+
+  nav {
+      background-color: #000814; /* Dark blue navigation bar */
+      overflow: hidden;
+  }
+
+  nav a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: .8em 1em;
+      text-decoration: none;
+  }
+
+  nav a:hover {
+      background-color: #555; /* Darker blue on hover */
+      transition: .3s;
+  }
+</style>
+
+<header>
+<h1>CrossSpirit Fashion</h1>
+</header>
+
+<nav>
+<a href="/admin">Admin Login</a>
+<a href="/login">User Login</a>
+<a href="/register">User Signup</a>
+</nav>
+
+<!-- Add your content here -->
+
+<div class="container d-flex justify-content-center mt-5 min-vh-100">
+<main>
+  <h3 class="text-center fw-bolder font-italic">Elevate your style with curated trends for every occasion.</h3>
+  <h3 class="text-center fw-bolder font-italic">Discover unique pieces that celebrate individuality and embody the spirited essence of modern elegance.</h3>
+</main>
+</div>
+
+<%- include('../layouts/footer') %>

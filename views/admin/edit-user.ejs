@@ -1,0 +1,80 @@
+<%- include('../layouts/header') %>
+
+
+<header>
+    <div class="right-align">
+        <a href="/admin/Dashboard">Go Back</a>
+    </div>
+  </header>
+
+
+<h1 class="text-center mt-3">Update User</h1>
+
+<form action="" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<%= user.name %>" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="<%= user.email %>" required>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" value="<%= user.mobile %>" required>
+   
+    <!-- <label for="mobile">Password :</label>
+    <input type="password" id="mobile" name="password" value="<%= user.password %>" required> -->
+
+    <input type="hidden" name="id" value="<%= user._id %>">
+    <input type="submit" value="Update User" class="login-admin">
+</form>
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 2.4em;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color: #ddd;
+        margin-right: 1em;
+    }
+    .right-align {
+        text-align: right;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+
+    .login-admin{
+      background-color: #007BFF;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    .login-admin:hover {
+      background-color: #0056b3;
+    }
+</style> 
+
+
+<%- include('../layouts/footer') %>
